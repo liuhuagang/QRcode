@@ -41,10 +41,14 @@ public class TestQrGen {
 	}
 
 	@Test
-	public void iniTest() {
-		URL url = this.getClass().getClassLoader().getResource("upload/111.jpg");
-		System.out.println(url);
-		this.localLogoPath = url.getFile();
+	public void iniTest() throws IOException {
+		// URL url = this.getClass().getClassLoader().getResource("upload/111.jpg");
+		// System.out.println(url);
+		// this.localLogoPath = url.getFile();
+		content ="<物品：扳手><归属：天府新区行政审批局物业服务中心><联系方式：139xxxxxxxx>";
+		boolean success = generator.setLogo(this.localLogoPath).generate(content)
+				.toFile("src/main/resources/download/2.jpg");
+		Assert.assertTrue(success);
 	}
 
 	@Test
@@ -63,8 +67,9 @@ public class TestQrGen {
 	 */
 	@Test
 	public void testLocalLogo() throws IOException {
-		System.out.println(this.localLogoPath);
-		boolean success = generator.setLogo(this.localLogoPath).generate(content).toFile("src/main/resources/download/1.jpg");
+		// System.out.println(this.localLogoPath);
+		boolean success = generator.setLogo(this.localLogoPath).generate(content)
+				.toFile("src/main/resources/download/1.jpg");
 		Assert.assertTrue(success);
 	}
 

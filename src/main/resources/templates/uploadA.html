@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>单文件上传</title>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+	<form action="/uploadFile" method="post" enctype="multipart/form-data">
+		<input type="file" name="uploadFile" value="请选择文件"> <input
+			type="submit" value="上传">
+	</form>
+	<br>
+	<img alt="" src="">
+	<!--th:text 将div里面的文本内容设置为 -->
+	<img alt="" th:src="${path}" width="200" height="200">
+	<br>
+	<button id="button">生产二维码</button>
+</body>
+
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$("#button").bind("click", function() {
+			window.open("download");
+		});
+
+	});
+</script>
+</html>
